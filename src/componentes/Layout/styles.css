@@ -106,8 +106,9 @@ body {
     font-size:larger;
 }
 
-.carrito {
+.button-carritos {
     position: absolute;
-    top: 0;
+    top: 10px;
     right: 10px;
 }
+

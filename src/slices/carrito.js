@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    productos: []
+    productos: [],
+    total: 0
 };
 
 const carritoSlice = createSlice({
@@ -11,8 +12,15 @@ const carritoSlice = createSlice({
         agregarProducto: (state, action) => {
             const producto = action.payload;
             state.productos.push(producto);
+            state.total += producto.price;
         }
     },
+
+    reiniciarCarrito: (state) => {
+        state.productos = [];
+        state.total = 0;
+    }
 });
 
+export const {agregarProducto, reiniciarCarrito} = carritoSlice.actions;
 export default carritoSlice;
