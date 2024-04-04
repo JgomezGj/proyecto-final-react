@@ -11,7 +11,7 @@ const Productos = () => {
     const [productos, setProductos] = useState([]);
 
 useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
+    fetch("https://fakestoreapi.com/products?limit=6")
     .then((res) => res.json())
     .then((data) => {
         setProductos(data);
@@ -23,15 +23,15 @@ useEffect(() => {
 }, [productosEnStore]);
 
     return <div className="productos-container">
-        <h1>Productos</h1>
+        <h1></h1>
         <ul className="lista-container">
             {productos.map(producto => {
                 return (
                     <li key={producto.id} className="li-container">
-                        <h1> {producto.title} </h1>
-                        <p> {producto.description} </p>
+                        <h2> {producto.product} </h2>
+                        <p> {producto.price} </p>
                         <img src={producto.image} alt={producto.title} />
-                        <button onClick={(evento) => dispatch(agregarProducto(producto))}>
+                        <button onClick={(evento) => dispatch(agregarProducto(producto))} className="button-carrito">
                             Agregar al carrito </button>
                     </li>
                 )
