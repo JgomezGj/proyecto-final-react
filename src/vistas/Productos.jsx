@@ -23,16 +23,15 @@ useEffect(() => {
 }, [productosEnStore]);
 
     return <div className="productos-container">
-        <h1></h1>
         <ul className="lista-container">
             {productos.map(producto => {
                 return (
                     <li key={producto.id} className="li-container">
-                        <h2> {producto.product} </h2>
+                        <h2> {producto.title} </h2>
                         <p> {producto.price} </p>
                         <img src={producto.image} alt={producto.title} />
                         <button onClick={(evento) => dispatch(agregarProducto(producto))} className="button-carrito">
-                            Agregar al carrito </button>
+                            COMPRAR </button>
                     </li>
                 )
             })}

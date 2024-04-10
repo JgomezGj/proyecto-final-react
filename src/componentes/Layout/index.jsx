@@ -1,6 +1,6 @@
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Contacto from "../../vistas/Contacto";
 import CarritoComponente from "./CarritoComponente";
 import "./styles.css";
@@ -10,12 +10,18 @@ const Layout = (props) => {
   const [showContacto, setShowContacto] = useState(false);
   const [showCarrito, setShowCarrito] = useState(false);
   const [showBienvenida, setShowBienvenida] = useState(true);
+  const [showProductosButton, setShowProductosButton] = useState(true);
+
+  useEffect(() => {
+    setShowProductosButton(!showCarrito);
+  }, [showCarrito]);
 
   const toggleContent = () => {
     setShowContent(!showContent);
     setShowContacto(false);
     setShowBienvenida(false);
     setShowCarrito(false);
+    setShowProductosButton(true);
   };
 
   const handleContactoClick = () => {
@@ -23,6 +29,7 @@ const Layout = (props) => {
     setShowContacto(!showContacto);
     setShowBienvenida(false);
     setShowCarrito(false);
+    setShowProductosButton(true);
   };
 
   const handleInicioClick = () => {
@@ -30,6 +37,7 @@ const Layout = (props) => {
     setShowContacto(false);
     setShowBienvenida(true);
     setShowCarrito(false);
+    setShowProductosButton(true);
   };
 
   const handleCarritoClick = () => {
@@ -37,10 +45,10 @@ const Layout = (props) => {
     setShowContacto(false);
     setShowBienvenida(false);
     setShowCarrito(!showCarrito);
+    setShowProductosButton(false);
   };
 
   return (
-    
     <div className="layout-container">
       <h3 className="nombre">Tienda Colombiana</h3>
       {showBienvenida && (
@@ -51,7 +59,7 @@ const Layout = (props) => {
       )}
       <h2 className="carrito">
         <button className="button-carritos" onClick={handleCarritoClick}>
-        <FontAwesomeIcon icon={faShoppingCart} />
+          <FontAwesomeIcon icon={faShoppingCart} />
         </button>
       </h2>
       <h2 className="inicio-contacto">
@@ -60,12 +68,9 @@ const Layout = (props) => {
       </h2>
       <div className="productos-container">
         <h2>
-          {/* Mostrar el componente de carrito si showCarrito es true */}
           {showCarrito && <CarritoComponente/>}
-          {/* Mostrar el componente de contacto si showContacto es true */}
           {showContacto && <Contacto />}
-          <button onClick={toggleContent} className="button-productos">Productos</button>
-          {/* Mostrar el contenido de productos si showContent es true */}
+          {showProductosButton && <button onClick={toggleContent} className="button-productos">Productos</button>}
           {showContent && <div>{props.children}</div>}
         </h2>
       </div>

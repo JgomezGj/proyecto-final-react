@@ -6,6 +6,12 @@
   margin-top: 50px;
 }
 
+.productos-container h2 {
+    display:block;
+    margin-top: 10px;
+    font-size: smaller;
+}
+
 .lista-container {
   background: #2001225e;
   background: -webkit-linear-gradient(to right, #6f00005b, #2001225b);
@@ -20,21 +26,26 @@
   grid-gap: 20px;
 }
 
+.lista-container li {
+  background-color: #f0f0f0;
+}
+
 .li-container {
   border-radius: 0px;
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 0px;
+  margin-top: -10px;
+
 }
 
 .button-carrito {
-  margin-top: 50px;
-  background: #f2984a6e;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #f2c84c7e, #f2984a70);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #f2c84c83, #f2984a7c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  margin-top: 10px;
+  background: #f2984a8e;
+  background: -webkit-linear-gradient(to right, #f2c84caf, #f2984aa6);
+  background: linear-gradient(to right, #f2c84cb7, #f2984a7c);
+  font-size: smaller;
 }
 
 img {

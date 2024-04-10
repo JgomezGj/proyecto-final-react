@@ -10,6 +10,7 @@
     position: absolute;
     top: 20px;
     right: 20px;
+    transform: scale(0.8);
 }
 
 .inicio-contacto button {
@@ -110,5 +111,31 @@ body {
     position: absolute;
     top: 10px;
     right: 10px;
+    background-color: #d802862d;
+    border-bottom: #D80286;
 }
 
+.vaciar-carrito {
+    background: #f2984a8e;
+    background: -webkit-linear-gradient(to right, #f2c84caf, #f2984aa6);
+    background: linear-gradient(to right, #f2c84cb7, #f2984a7c);
+    font-size: smaller;
+}
+
+.carrito-container {
+    
+    display: grid;
+    justify-content: center;
+    background-color: #d8028667;
+    height: 200px;
+    width: 250px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0.5, 0.5);
+}
+
+.pagar-carrito {
+    margin: 10px;
+    background: #f2984a8e;
+    background: -webkit-linear-gradient(to right, #f2c84caf, #f2984aa6);
+    background: linear-gradient(to right, #f2c84cb7, #f2984a7c);
+    font-size: smaller;
+}
